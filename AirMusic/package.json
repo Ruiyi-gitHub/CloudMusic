@@ -1,0 +1,13 @@
+{
+  "name": "cloud-music-web",
+  "version": "1.0.0",
+  "description": "This is a music player",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start":"set PORT=1234 && node server/node/server.js"
+  },
+  "dependencies": {
+    "mime-types":"^2.1.20"
+  }
+}

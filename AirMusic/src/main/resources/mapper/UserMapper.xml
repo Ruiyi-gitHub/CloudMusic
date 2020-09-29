@@ -10,25 +10,18 @@ mybatis会依据这个接口动态创建一个实现类去实现这个接口，
    id ="接口中的方法名"
 　　parameterType="传入的参数类型"
 　　resultType = "返回实体类对象，使用包.类名"-->
-<mapper namespace="edu.wang.pojo.dao.UserMapper">
-    <select id="userFindByIdTest" resultType="edu.wang.pojo.User"> select * from users</select>
+<mapper namespace="com.airmusic.dao.UserMapper">
+    <insert id="importPicturePath" parameterType="com.airmusic.entiy.Picture">
+        insert into a_picture(pictureTitle,picturePath) values
+        <foreach collection="collection,list" item="PathName" separator=",">
+            (#{PathName.pictureTitle},#{PathName.picturePath})
+        </foreach>
+    </insert>
 
-    <insert id="userAddByDB" parameterType="edu.wang.pojo.User">
-        insert into users(uname,uage) values(#{uname},#{uage})
+    <insert id="addSongListger" parameterType="com.airmusic.entiy.SongList">
+        insert into
+        a_songset(mName,mCreateName)
+        values
+        (#{mName},#{mCreateName})
     </insert>
-    <insert id="importAudioDB" parameterType="edu.wang.pojo.User">
-        insert into a_audio(rAideoName,rAudio) values(#{rAideoName},#{rAudio})
-    </insert>
-    <insert id="importVoiceDB" parameterType="edu.wang.pojo.User">
-        insert into a_voice(rVoiceName,rVoice) values(#{rAideoName},#{rVoice})
-    </insert>
-    <update id="userUpdateByUser">
-        update users set uname = #{uname},uage = #{uage} WHERE uid = #{uid}
-    </update>
-    <select id="dbImportFile" resultType="edu.wang.pojo.User">
-        SELECT rAideoName,rAudio FROM a_audio
-    </select>
-    <delete id="userDelByDB">
-        delete from users where uid = #{uid}
-    </delete>
 </mapper>

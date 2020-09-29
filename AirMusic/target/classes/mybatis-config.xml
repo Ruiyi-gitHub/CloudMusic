@@ -10,10 +10,6 @@
         <setting name="logImpl" value="LOG4J"/>
     </settings>
 
-    <!--别名-->
-    <typeAliases>
-        <package name="edu.wang.pojo"/>
-    </typeAliases>
     <!-- 环境配置 -->
     <environments default="development">
         <environment id="development">

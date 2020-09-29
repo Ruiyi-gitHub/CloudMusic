@@ -10,11 +10,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>网易云音乐</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>云音乐</title>
+	
     <link rel="icon" type="image/ico" href="images/format.ico"/>
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ykindex.css"/>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 
 <body onselectstart="return false">
@@ -41,22 +50,53 @@
                 <p class="btn me_fm"><i class="fa fa-bullseye" aria-hidden="true"></i>&nbsp;&nbsp;我的电台</p>
             </div>
         </div>
-        <div class="list list_create">
+        <div class="list list_create" >
             <p class="title">创建的歌单
+			
                 <span class="title_btngroups">
-						<a href="javascript:void(0);" class="btn addlist" id="addList"><i class="fa fa-plus-circle"
-                                                                                          aria-hidden="true"></i></a>
-						<a href="javascript:void(0);" class="btn unfoldlist"><i class="fa fa-angle-down"
-                                                                                aria-hidden="true"></i></a>
-					</span>
+					<a href="javascript:void(0);" class="btn "><i id="addimg" class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    <a href="javascript:void(0);" class="btn unfoldlist"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                </span>
             </p>
-            <div class="btngroups">
+            <div class="btngroups" id="songListList">
                 <p class="btn list_create_like active" id="list_create_like"><i class="fa fa-heart-o"
                                                                                 aria-hidden="true"></i>&nbsp;&nbsp;我喜欢的音乐
                 </p>
-                <p class="btn list_create_001"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;我的歌单02</p>
-            </div>
+                <div class="btn list_create_001 drawing" ><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;我的歌单02</div>
+				
+			</div>
         </div>
+		<!--自定义右键菜单-->
+				<div id="menu" class="skin">
+					<ul class="list-group">
+				 
+					   <li class="list-group-item"><i class="fa fa-play-circle-o"></i>&nbsp;&nbsp;播放(Enter)</li>
+				 
+					   <li class="list-group-item"><i class="fa fa-pencil-square-o">&nbsp;&nbsp;</i>编辑</li>
+				 
+					    <li class="list-group-item"><i class='fa fa-trash'></i>&nbsp;&nbsp;<span>删除歌单(DELETE)</span></li>
+				 </ul>
+				</div>
+		<div class="addList">
+			<table border="0">
+				<div>
+					<tr  id="titleSongtr">
+						<th colspan="2" style="font-size: 20px";><span id="titleSong">新建歌单</span></th>
+					</tr>
+				</div>
+				<div >
+					<tr id="songListValue">
+						<td colspan="2"><input type="text" class="form-control" id="usr" placeholder="请输入新歌单标题"/></td>
+					</tr>
+				</div>
+				<div >
+					<tr id="songListBtn">
+						<td><button type="button" id="addSongListbtn" class="btn btn-info">创建歌单</button></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="addSongListCancel" type="button" class="btn btn-light">取消</button></td>
+					</tr>
+				</div>
+				
+			</table>
+		</div>
         <div class="list list_collect">
             <p class="title">收藏的歌单
                 <span class="title_btngroups">
@@ -249,7 +289,7 @@
                                     <span class="btn">
 											<a href="javascript:void(0);" class="btn_report">举报</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 											<a href="javascript:void(0);" class="btn_support"><i
-                                                    class="fa fa-thumbs-o-up" aria-hidden="true"></i>(0)</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                                  class="fa fa-thumbs-o-up" aria-hidden="true"></i>(0)</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 											<a href="javascript:void(0);" class="btn_share">分享</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 											<a href="javascript:void(0);" class="btn_reply">回复</a>
 										</span>
@@ -432,10 +472,19 @@
     <span class="loading_text">
 			<!-- Loading... --></span>
 </div>
+
+
+
+		 
+		
 <!-- scripts -->
+<script src="http://api.51ditu.com/js/ajax.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/lyricScroll.js"></script>
 <script type="text/javascript" src="js/request.js"></script>
 <script type="text/javascript" src="js/player.js"></script>
+<script src="js/ykindex.js"></script>
+
+	
 </body>
 </html>
